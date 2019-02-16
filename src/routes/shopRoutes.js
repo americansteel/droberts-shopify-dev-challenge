@@ -7,10 +7,6 @@ import {
 
 const routes = (app) => {
 
-    app.route('/')
-    .get((req, res, next) => {
-        return res.render('index');
-    });
 
 
     app.route('/products')

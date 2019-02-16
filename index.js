@@ -10,9 +10,7 @@ const PORT = 3000;
 
 //mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://shopify-user:shopify1234@ds129085.mlab.com:29085/shopify-developer-challenge', {
-    useMongoClient: true
-});
+mongoose.connect('mongodb://shopify-user:shopify1234@ds129085.mlab.com:29085/shopify-developer-challenge')
 
 //bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,7 +20,7 @@ routes(app);
 
 //swagger setup
 var swaggerUi = require('swagger-ui-express'),
-    swaggerDocument = require('./swagger.json');
+    swaggerDocument = require('./openapi.json');
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 //serving static files
