@@ -21,28 +21,10 @@ const routes = (app) => {
         .post(addNewProduct);
 
     app.route('/products/available')
-    .get(getAvailableProducts);
+        .get(getAvailableProducts);
 
     app.route('/products/purchase/:productId')
-    .post(purchaseProduct);
-
-    //  app.route('/product/purchase/:title')
-   // .put(updateProduct)
-   
-   
-   
-    // app.route('/contact/id/:contactId')
-    //     //get specific contact 
-    //      .get(getContactById)
-    //     //put request
-    //     .put(updateContact)
-    //     //delete request
-    //     .delete(deleteContact)
-
-    // app.route('/contact/name/:firstName')
-    //     .get(getContactByName);
-
-
+        .post(purchaseProduct);
 }
 
 export default routes;

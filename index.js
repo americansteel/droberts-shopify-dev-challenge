@@ -22,13 +22,9 @@ routes(app);
 var swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('./openapi.json');
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-//serving static files
-app.use(express.static('public'))
+//serve swagger documentation on root
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.get('/', (req, res) =>
-    res.send(`Node and express is running on port ${PORT}`)
-);
 
 app.listen(PORT, () =>
     console.log(`your server is is running on port ${PORT}`)

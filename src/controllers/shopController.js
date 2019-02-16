@@ -3,6 +3,7 @@ import { ProductSchema } from '../models/shopModel';
 
 const Product = mongoose.model('Product', ProductSchema);
 
+//add new product, req. product object
 export const addNewProduct = (req, res) => {
     let newProduct = new Product(req.body);
     newProduct.save((err, product ) => {
@@ -13,6 +14,7 @@ export const addNewProduct = (req, res) => {
     });
 };
 
+//get all products
 export const getProducts = (req, res) => {
     Product.find({}, (err, product) => {
         if (err) {
@@ -21,6 +23,8 @@ export const getProducts = (req, res) => {
         res.json(product)
     })
 }
+
+//get all products with inventory of 1 or more
 export const getAvailableProducts = (req, res) => {
     Product.find({ inventory_count: { $gt: 0 } }, (err, product) => {
         if (err) {
@@ -30,6 +34,7 @@ export const getAvailableProducts = (req, res) => {
     })
 }
 
+//update product info, req. product object
 export const updateProduct = (req, res) => {
     Product.findOneAndUpdate({ title: req.params.title }, req.body, { new: true, runValidators: true }, (err, product) => {
         if (err) {
@@ -39,6 +44,7 @@ export const updateProduct = (req, res) => {
     })
 }
 
+//purchase product, req. id in the URL
 export const purchaseProduct = (req, res) => {
     Product.findOneAndUpdate({ _id: req.params.productId, inventory_count: {$gte: 1 }  }, { $inc: {inventory_count: -1} }, { new: true, runValidators: true, useFindandModify: false   }, (err, newProduct) => {
         if (err) {
@@ -49,30 +55,3 @@ export const purchaseProduct = (req, res) => {
 }
 
 
-// export const getContactByName = (req, res) => {
-//     Contact.find({firstName: req.params.firstName}, (err, contact) => {
-//         if (err) {
-//             res.send(err);
-//         }
-//         res.json(contact);
-//     })
-
-// }
-
-// export const updateContact = (req, res) => {
-//     Contact.findOneAndUpdate({ _id: req.params.contactId}, req.body, { new: true}, (err, contact) => {
-//         if (err) {
-//             res.send(err)
-//         }
-//         res.json(contact);
-//     } )
-// }
-
-// export const deleteContact = (req, res) => {
-//     Contact.remove({ _id: req.params.contactId}, (err, contact) => {
-//         if (err) {
-//             res.send(err)
-//         }
-//         res.json( {message: 'Successfully deleted contact'});
-//     })
-// }

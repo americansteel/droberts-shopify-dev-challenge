@@ -13,7 +13,7 @@
   ],
   "servers": [
     {
-      "url": "https://dylan-roberts-shopify-challeng.herokuapp.com"
+      "url": "https://dylan-roberts-shopify.herokuapp.com/"
     }
   ],
   "paths": {
@@ -39,13 +39,13 @@
         },
         "servers": [
           {
-            "url": "https://dylan-roberts-shopify-challeng.herokuapp.com"
+            "url": "https://dylan-roberts-shopify.herokuapp.com/"
           }
         ]
       },
       "servers": [
         {
-          "url": "https://dylan-roberts-shopify-challeng.herokuapp.com"
+          "url": "https://dylan-roberts-shopify.herokuapp.com/"
         }
       ]
     },
@@ -54,6 +54,7 @@
         "tags": [
           "products"
         ],
+        "summary": "Returns all products in inventory",
         "description": "Returns all products with an inventory of 1 or more",
         "responses": {
           "200": {
@@ -70,13 +71,13 @@
         },
         "servers": [
           {
-            "url": "https://dylan-roberts-shopify-challeng.herokuapp.com"
+            "url": "https://dylan-roberts-shopify.herokuapp.com/"
           }
         ]
       },
       "servers": [
         {
-          "url": "https://dylan-roberts-shopify-challeng.herokuapp.com"
+          "url": "https://dylan-roberts-shopify.herokuapp.com/"
         }
       ]
     },
@@ -85,6 +86,7 @@
         "tags": [
           "products"
         ],
+        "summary": "Purchase an item",
         "description": "Purchases an item from the collection",
         "parameters": [
           {
