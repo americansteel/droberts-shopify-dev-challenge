@@ -6,9 +6,6 @@ import {
 } from "../controllers/shopController";
 
 const routes = (app) => {
-
-
-
     app.route('/products')
         .get((req, res, next) => {
             //middleware
@@ -20,9 +17,11 @@ const routes = (app) => {
         //POST endpoint
         .post(addNewProduct);
 
+        //get products with inventory above 1
     app.route('/products/available')
         .get(getAvailableProducts);
-
+        
+        //purchase products
     app.route('/products/purchase/:productId')
         .post(purchaseProduct);
 }

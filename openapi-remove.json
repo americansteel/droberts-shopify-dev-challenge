@@ -5,10 +5,10 @@
     "description": "API created for Shopify Back-End Developer Challenge",
     "version": "0.1"
   },
-  "tags": [
+  "tags" : [
     {
       "name": "products",
-      "description": "Find product information here"
+      "description": "Find product information here" 
     }
   ],
   "servers": [
@@ -30,10 +30,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/product"
-                  }
+                  "type": "string"
                 },
                 "examples": {}
               }
@@ -65,10 +62,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/product"
-                  }
+                  "type": "string"
                 },
                 "examples": {}
               }
@@ -110,9 +104,6 @@
             "description": "Success",
             "content": {
               "application/json; charset=utf-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/product"
-                },
                 "examples": {}
               }
             }
@@ -125,17 +116,8 @@
     "schemas": {
       "product": {
         "properties": {
-          "_id": {
+          "productId": {
             "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "price": {
-            "type": "integer"
-          },
-          "inventory_count": {
-            "type": "integer"
           }
         }
       }
